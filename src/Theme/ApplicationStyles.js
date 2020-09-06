@@ -16,7 +16,15 @@ const ApplicationStyles = StyleSheet.create({
 
     elevation: 9,
   },
-
+  
+  cardNoBorder: {
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderRadius: 10,
+    padding: 10,
+  },
   
 });
 

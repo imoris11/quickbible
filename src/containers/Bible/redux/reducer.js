@@ -1,4 +1,4 @@
-const { BOOKMARK_VERSE } = require("./actions")
+const { BOOKMARK_VERSE, REMOVE_BOOKMARK } = require("./actions")
 
 const initialState = {
     data:[],
@@ -10,6 +10,11 @@ const bookmarksReducer = (state = initialState, action) => {
             return {
                 ...state,
                 data: [...state.data, action.payload]
+            }
+        case REMOVE_BOOKMARK:
+            return {
+                ...state,
+                data: state.data.filter((verse) => verse.text !== action.payload)
             }
         default:
             return state

@@ -43,7 +43,6 @@ class Bible extends Component {
   _shareVerse = (verse) => {
     const { selectedBook, selectedChapter } = this.state;
     const verseToShare = `${selectedBook} ${selectedChapter+1} vs ${verse.verse}:  ${verse.text}`;
-    console.log(verseToShare)
     Share.share({message: verseToShare}, {
       dialogTitle: "Share Bible Verse",
       subject: "Bible Verse To Read",
@@ -97,6 +96,7 @@ class Bible extends Component {
           this.setState({
             selectedBook: item,
             selectedChapter: 0,
+            selectedVerse:-1,
             isBibleModalOpen: false,
           })
         }
@@ -168,6 +168,7 @@ class Bible extends Component {
           }}
         >
           <View style={{ flex: 1, marginTop: 80 }}>
+            <Text style={{fontSize:18}} onPress={()=> this.setState({ isBibleModalOpen:false })}>Close</Text>
             <FlatList
               data={books}
               renderItem={this._renderListBook}
