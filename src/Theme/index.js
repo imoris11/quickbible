@@ -1,6 +1,9 @@
-import { Colors } from './colors'
-
+import { Colors } from './Colors'
+import ApplicationStyles from './ApplicationStyles'
+import Metrics from './Metrics'
 
 export {
-    Colors
+    Colors,
+    ApplicationStyles,
+    Metrics
 }
