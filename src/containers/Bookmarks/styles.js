@@ -20,12 +20,10 @@ const styles = StyleSheet.create({
   position: {
     fontWeight: '600',
     fontSize: 14,
-    color: Colors.greyText,
   },
   name: {
     fontSize: 23,
     fontWeight: '800',
-    color: Colors.greySubText,
     marginBottom: 10,
   },
   divider: {
@@ -33,6 +31,15 @@ const styles = StyleSheet.create({
   },
   listView: {
     marginHorizontal: 30,
+  },
+  icon:{
+    fontSize:20, 
+    marginLeft:10, 
+    color: Colors.primary_blue
+  },
+  emptyText: {
+    fontSize: 23,
+    fontWeight: '800',
   },
 });
 

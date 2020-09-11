@@ -7,10 +7,10 @@ import {
   FlatList,
   Alert,
   Modal,
+  TouchableOpacity
 } from 'react-native';
 import { ApplicationStyles, Colors } from '../../Theme';
 import { Header, Left, Icon, Container, Card } from 'native-base';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { bible } from './data'
 import { allBooks } from './books'
 import { connect } from 'react-redux';
@@ -37,7 +37,7 @@ class Bible extends Component {
       chapter: this.state.selectedChapter
     }
     this.props.addBookmark(verseToBookmark)
-
+    this.setSelectedVerse({ selectedVerse: -1})
   }
 
   _shareVerse = (verse) => {

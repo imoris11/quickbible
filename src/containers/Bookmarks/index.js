@@ -21,8 +21,8 @@ export class Bookmarks extends Component {
             </View>
           </View>
           <View style={{flexDirection: 'row', marginTop:10}}>
-          <Icon name="ios-share-social" onPress={()=> this._shareVerse(item)} style={{fontSize:20, marginLeft:10, color: Colors.primary_blue}} />
-          <Icon name="trash-outline" onPress={()=> this._deleteItem(item.text)} style={{fontSize:20, marginLeft:10, color: Colors.primary_blue}} />
+          <Icon name="ios-share-social" onPress={()=> this._shareVerse(item)} style={styles.icon} />
+          <Icon name="trash-outline" onPress={()=> this._deleteItem(item.text)} style={styles.icon} />
           </View>
         </Card>
       </View>
@@ -44,6 +44,14 @@ export class Bookmarks extends Component {
   _itemSeparator = () => {
     return <View style={styles.divider} />;
   };
+
+  getEmptySection = () => {
+    return (
+      <View style={[styles.container, {justifyContent:'center', alignItems:'center'}]}>
+          <Text style={styles.emptyText}>No Bookmarks</Text>
+      </View>
+    )
+  }
   render() {
     return (
       <Container>
@@ -52,8 +60,9 @@ export class Bookmarks extends Component {
             <Text style={{color: Colors.primary_blue, fontSize:20, fontWeight:'700'}}>Bookmarks</Text>
           </Body>
         </Header>
+        {this.props.bookmarks.length === 0 && this.getEmptySection()}
         <FlatList
-        style={{marginTop:20}}
+          style={{marginTop:20}}
           contentContainerStyle={styles.listView}
           data={this.props.bookmarks}
           keyExtractor={(item) => `${item.chapter}${item.text}`}
